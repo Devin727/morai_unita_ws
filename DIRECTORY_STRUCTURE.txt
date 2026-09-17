@@ -1,0 +1,102 @@
+unita_ws/
+├── build/  # catkin 생성물: 내부 생략, Git 제외
+├── devel/  # catkin 생성물: 내부 생략, Git 제외
+├── src/
+│   ├── control/
+│   │   ├── config/
+│   │   ├── launch/
+│   │   ├── scripts/
+│   │   ├── src/
+│   │   ├── test/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   └── package.xml
+│   ├── localization/
+│   │   ├── config/
+│   │   │   └── gps_imu.yaml
+│   │   ├── launch/
+│   │   │   └── gps_imu_localization.launch
+│   │   ├── scripts/
+│   │   │   └── gps_imu_localization.py
+│   │   ├── src/
+│   │   │   └── unita_localization/
+│   │   │       ├── __init__.py
+│   │   │       └── estimator.py
+│   │   ├── test/
+│   │   │   └── test_estimator.py
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   ├── package.xml
+│   │   └── setup.py
+│   ├── perception/
+│   │   ├── config/
+│   │   ├── launch/
+│   │   ├── scripts/
+│   │   ├── src/
+│   │   ├── test/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   └── package.xml
+│   ├── planner/
+│   │   ├── config/
+│   │   ├── launch/
+│   │   ├── scripts/
+│   │   ├── src/
+│   │   ├── test/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   └── package.xml
+│   ├── sensor_bridge/
+│   │   ├── config/
+│   │   │   └── sensors.yaml
+│   │   ├── launch/
+│   │   │   ├── sensor_bridge.launch
+│   │   │   └── udp_receiver.launch
+│   │   ├── scripts/
+│   │   │   └── udp_sensor_bridge.py
+│   │   ├── src/
+│   │   │   └── sensor_bridge/
+│   │   │       ├── __init__.py
+│   │   │       └── protocol.py
+│   │   ├── test/
+│   │   │   └── test_protocol.py
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   ├── package.xml
+│   │   └── setup.py
+│   ├── unita_launch/
+│   │   ├── config/
+│   │   ├── launch/
+│   │   ├── scripts/
+│   │   ├── src/
+│   │   ├── test/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   └── package.xml
+│   ├── unita_waypoint/
+│   │   ├── config/
+│   │   │   └── waypoints.csv
+│   │   ├── launch/
+│   │   │   └── gps_waypoint.launch
+│   │   ├── scripts/
+│   │   │   └── gps_waypoint_follower.py
+│   │   ├── CMakeLists.txt
+│   │   └── package.xml
+│   └── CMakeLists.txt
+├── .catkin_workspace
+├── .gitignore
+└── DIRECTORY_STRUCTURE.txt
+
+패키지 역할
+- sensor_bridge: MORAI UDP 센서를 ROS 토픽으로 변환 (구현됨)
+- localization: GPS 위치 + IMU yaw로 map 좌표 pose 발행 (구현됨)
+- perception: 카메라/LiDAR 인식 (기본 구조)
+- planner: waypoint 관리 및 경로 계획 (기본 구조)
+- control: 경로 추종 및 차량 제어 (기본 구조)
+- unita_launch: 전체 노드 통합 실행 (기본 구조)
+- unita_waypoint: 기존 단일 waypoint follower (분리 완료 후 삭제 예정)
+
+공통 폴더: config=설정, launch=실행 구성, scripts=ROS 노드, src=내부 모듈, test=테스트
+빈 폴더의 .gitkeep, Python 캐시, .git 내부는 표시하지 않음.
+외부 의존: ~/catkin_ws/src/MORAI-ROS_morai_msgs (이 저장소에 포함되지 않음)
+현재 기존 waypoint follower는 /gps 및 /imu를 직접 구독하며 localization 출력 연결은 아직 미적용.
