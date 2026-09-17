@@ -1,0 +1,8 @@
+prefix=/home/unita/unita_ws/install
+
+Name: unita_launch
+Description: Description of unita_launch
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

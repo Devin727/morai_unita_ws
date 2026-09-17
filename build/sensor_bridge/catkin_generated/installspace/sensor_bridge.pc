@@ -1,0 +1,8 @@
+prefix=/home/unita/unita_ws/install
+
+Name: sensor_bridge
+Description: Description of sensor_bridge
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: morai_msgs rospy sensor_msgs

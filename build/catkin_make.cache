@@ -1,0 +1,2 @@
+control:localization:perception:planner:sensor_bridge:unita_launch:unita_waypoint
+-DPYTHON_EXECUTABLE=/usr/bin/python3 -DCATKIN_DEVEL_PREFIX=/home/unita/unita_ws/devel -DCMAKE_INSTALL_PREFIX=/home/unita/unita_ws/install -G Unix Makefiles
