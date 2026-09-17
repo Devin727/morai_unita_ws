@@ -1,8 +1,0 @@
-prefix=/home/unita/unita_ws/install
-
-Name: unita_waypoint
-Description: Description of unita_waypoint
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
